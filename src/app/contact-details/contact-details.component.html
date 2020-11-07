@@ -1,0 +1,100 @@
+<div class="container mt-4">
+  <div class="text-center">
+    <img
+      class="img-fluid rounded-circle"
+      src="https://source.unsplash.com/random/560x560/?avatar"
+      alt="Failed to load image">
+    <h3 class="mt-2">{{ selectedContact["Display Name"] }}</h3>
+    <small>{{ selectedContact["Job Title"] }}</small>
+  </div>
+
+  <!-- Personal -->
+  <small>Personal</small>
+  <div class="personal m-2 p-3" style="border: 1px solid silver;">
+    <p>First Name: {{ selectedContact["First Name"] }}</p>
+    <p>Last Name: {{ selectedContact["Last Name"] }}</p>
+    <p>Gender: {{ selectedContact["Gender"] }}</p>
+    <p>Nickname: {{ selectedContact["Nickname"] }}</p>
+    <p>Mobile: {{ selectedContact["Mobile Phone"] }}</p>
+    <p>Email Address: {{ selectedContact["E-mail Address"] }}</p>
+    <p>Email Address 2: {{ selectedContact["E-mail 2 Address"] }}</p>
+    <p>Email Address 3: {{ selectedContact["E-mail 3 Address"] }}</p>
+    <p>Birthday: {{ selectedContact["Birthday"] }}</p>
+    <p>Anniversary: {{ selectedContact["Anniversary"] }}</p>
+    <p>Country Code: {{ selectedContact["Country Code"] }}</p>
+  </div>
+
+  <!-- Business -->
+  <small>Business</small>
+  <div class="business m-2 p-3" style="border: 1px solid silver;">
+    <p>Business Address: {{ selectedContact["Business Address"] }}</p>
+    <p>Business Address 2: {{ selectedContact["Business Address 2"] }}</p>
+    <p>Business City: {{ selectedContact["Business City"] }}</p>
+    <p>Business Country: {{ selectedContact["Business Country"] }}</p>
+    <p>Business Fax: {{ selectedContact["Business Fax"] }}</p>
+    <p>Business Phone: {{ selectedContact["Business Phone"] }}</p>
+    <p>Business Postal Code: {{ selectedContact["Business Postal Code"] }}</p>
+    <p>Business State: {{ selectedContact["Business State"] }}</p>
+  </div>
+
+  <!-- Home -->
+  <small>Home</small>
+  <div class="home m-2 p-3" style="border: 1px solid silver;">
+    <p>Home Address 2: {{ selectedContact["Home Address 2"] }}</p>
+    <p>Home City: {{ selectedContact["Home City"] }}</p>
+    <p>Home Country: {{ selectedContact["Home Country"] }}</p>
+    <p>Home Fax: {{ selectedContact["Home Fax"] }}</p>
+    <p>Home Phone: {{ selectedContact["Home Phone"] }}</p>
+    <p>Home Postal Code: {{ selectedContact["Home Postal Code"] }}</p>
+    <p>Home State: {{ selectedContact["Home State"] }}</p>
+    <p>Home Street: {{ selectedContact["Home Street"] }}</p>
+  </div>
+
+  <!-- Others -->
+  <small>Others</small>
+  <div class="others m-2 p-3" style="border: 1px solid silver;">
+    <p>Categories: {{ selectedContact["Categories"] }}</p>
+    <p>Department: {{ selectedContact["Department"] }}</p>
+    <p>Notes: {{ selectedContact["Notes"] }}</p>
+    <p>Organization: {{ selectedContact["Organization"] }}</p>
+    <p>Pager: {{ selectedContact["Pager"] }}</p>
+    <p>Related Name: {{ selectedContact["Related Name"] }}</p>
+    <p>Web Page: {{ selectedContact["Web Page"] }}</p>
+    <p>Web Page 2: {{ selectedContact["Web Page 2"] }}</p>
+  </div>
+</div>
+
+<!-- Update Contact -->
+<div class="text-center mb-3">
+  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#updateModal">
+    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+    </svg>
+    Edit
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Contact</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-2">
+            <input type="text" class="form-control" placeholder="Enter Display Name" [(ngModel)]="displayName">
+        </div>
+        <div class="input-group mb-2">
+          <input type="number" class="form-control" placeholder="Enter Home Phone" [(ngModel)]="phoneNumber">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="onUpdate()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

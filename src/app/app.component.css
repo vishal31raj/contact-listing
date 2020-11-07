@@ -1,0 +1,11 @@
+.contact-list {
+  border: 1px solid silver;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.contact-details {
+  border: 1px solid silver;
+  height: 90vh;
+  overflow-y: scroll;
+}

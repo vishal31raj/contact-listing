@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 contact-list">
+      <!-- Contact List -->
+      <app-contact-list (selectedContact)="onSelectedContact($event)"></app-contact-list>
+    </div>
+    <div class="col-6 contact-details">
+      <!-- Contact Details -->
+      <app-contact-details [selectedContact]="selectedContact"></app-contact-details>
+    </div>
+  </div>
+</div>

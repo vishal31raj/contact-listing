@@ -1,0 +1,49 @@
+<!-- Search Contacts -->
+<div class="input-group my-2">
+  <input type="text" class="form-control" placeholder="Enter name or number" [(ngModel)]="searchedItem">
+  <div class="input-group-append">
+    <button class="btn btn-primary" type="button" (click)="onSearch()">Search</button>
+  </div>
+</div>
+
+<div *ngIf="!searchAlert && !contactNotFoundError">
+  <div class="pt-1 contact-item" *ngFor="let contact of contacts" style="border-bottom: 1px solid silver;">
+    <a style="cursor: pointer;" (click)="onContactSelect(contact)">
+      <div class="row">
+        <div class="col-3 text-center">
+          <img
+          class="img-fluid rounded-circle"
+          src="https://source.unsplash.com/random/560x560/?avatar"
+          alt="Failed to load image">
+        </div>
+        <div class="col-9">
+          <h5>{{ contact["Display Name"] }}</h5>
+          <p>{{ contact["E-mail Address"] }}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div *ngIf="searchAlert && !contactNotFoundError">
+  <div class="pt-1 contact-item" style="border-bottom: 1px solid silver;">
+    <a style="cursor: pointer;" (click)="onContactSelect(contact)">
+      <div class="row">
+        <div class="col-3 text-center">
+          <img
+          class="img-fluid rounded-circle"
+          src="https://avatars2.githubusercontent.com/u/2372211?s=460&v=4"
+          alt="Failed to load image">
+        </div>
+        <div class="col-9">
+          <h5>{{ searchedContact["Display Name"] }}</h5>
+          <p>{{ searchedContact["E-mail Address"] }}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="text-center" *ngIf="contactNotFoundError">
+  <p style="color: red;">Contact not found!</p>
+</div>
